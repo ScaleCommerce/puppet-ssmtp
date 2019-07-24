@@ -47,6 +47,7 @@ class sc_ssmtp (
   $tlskey                = undef,
   $tlscafile             = undef,
   $tlscadir              = undef,
+  $package               = false,
   $ssmtp_conf_mode       = $sc_ssmtp::params::ssmtp_conf_mode,
   $ssmtp_conf_owner      = $sc_ssmtp::params::ssmtp_conf_owner,
   $ssmtp_conf_group      = $sc_ssmtp::params::ssmtp_conf_group,
@@ -57,7 +58,9 @@ class sc_ssmtp (
 
   # Start workflow
   if $sc_ssmtp::params::supported {
-    class{ '::sc_ssmtp::package': }
+    if $package {
+      class{ '::sc_ssmtp::package': }
+    }
     -> class{ '::sc_ssmtp::config': }
     -> class{ '::sc_ssmtp::service': }
     -> Class['sc_ssmtp']
