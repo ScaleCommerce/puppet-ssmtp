@@ -15,7 +15,7 @@ class sc_ssmtp::params {
       $config_ssmtp_conf                = '/etc/ssmtp/ssmtp.conf'
       $config_ssmtp_conf_template       = 'sc_ssmtp/etc/ssmtp.conf.erb'
       $config_revaliases_conf           = '/etc/ssmtp/revaliases'
-      $config_revaliases_conf_template  = 'ssmtp/etc/revaliases.erb'
+      $config_revaliases_conf_template  = 'sc_ssmtp/etc/revaliases.erb'
       $ssmtp_conf_group                 = 'mail'
       $revaliases_conf_group            = 'root'
     }
@@ -29,7 +29,7 @@ class sc_ssmtp::params {
       $config_ssmtp_conf                = '/etc/ssmtp/ssmtp.conf'
       $config_ssmtp_conf_template       = 'sc_ssmtp/etc/ssmtp.conf.erb'
       $config_revaliases_conf           = '/etc/ssmtp/revaliases'
-      $config_revaliases_conf_template  = 'ssmtp/etc/revaliases.erb'
+      $config_revaliases_conf_template  = 'sc_ssmtp/etc/revaliases.erb'
       $ssmtp_conf_group                 = 'mail'
       $revaliases_conf_group            = 'root'
     }
@@ -45,7 +45,7 @@ class sc_ssmtp::params {
       $config_revaliases_conf           = '/usr/local/etc/ssmtp/revaliases'
       $config_revaliases_conf_template  = 'ssmtp/etc/revaliases.erb'
       $config_mailer_conf               = '/etc/mail/mailer.conf'
-      $config_mailer_conf_template      = 'ssmtp/etc/mailer.conf.erb'
+      $config_mailer_conf_template      = 'sc_ssmtp/etc/mailer.conf.erb'
       $ssmtp_conf_group                 = 'ssmtp'
       $revaliases_conf_group            = 'ssmtp'
       $mailer_conf_mode                 = '0644'
