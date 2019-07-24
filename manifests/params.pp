@@ -1,7 +1,7 @@
 # @summary This class contain the default parameters for ssmtp module
 # @example include ssmtp::param
 #
-class ssmtp::params {
+class sc_ssmtp::params {
 
   # Operating system specific definitions
   case $::osfamily {

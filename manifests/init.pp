@@ -30,12 +30,12 @@
 #      root_email => 'john.doe@example.local',
 #    }
 #
-class ssmtp (
-  $default_mta           = $ssmtp::params::default_mta,
-  $root_email            = $ssmtp::params::root_email,
-  $mail_hub              = $ssmtp::params::mail_hub,
-  $revaliases            = $ssmtp::params::revaliases,
-  $from_line_override    = $ssmtp::params::from_line_override,
+class sc_ssmtp (
+  $default_mta           = $sc_ssmtp::params::default_mta,
+  $root_email            = $sc_ssmtp::params::root_email,
+  $mail_hub              = $sc_ssmtp::params::mail_hub,
+  $revaliases            = $sc_ssmtp::params::revaliases,
+  $from_line_override    = $sc_ssmtp::params::from_line_override,
   $hostname              = undef,
   $rewritedomain         = undef,
   $authuser              = undef,
@@ -47,20 +47,20 @@ class ssmtp (
   $tlskey                = undef,
   $tlscafile             = undef,
   $tlscadir              = undef,
-  $ssmtp_conf_mode       = $ssmtp::params::ssmtp_conf_mode,
-  $ssmtp_conf_owner      = $ssmtp::params::ssmtp_conf_owner,
-  $ssmtp_conf_group      = $ssmtp::params::ssmtp_conf_group,
-  $revaliases_conf_mode  = $ssmtp::params::revaliases_conf_mode,
-  $revaliases_conf_owner = $ssmtp::params::revaliases_conf_owner,
-  $revaliases_conf_group = $ssmtp::params::revaliases_conf_group
-) inherits ssmtp::params {
+  $ssmtp_conf_mode       = $sc_ssmtp::params::ssmtp_conf_mode,
+  $ssmtp_conf_owner      = $sc_ssmtp::params::ssmtp_conf_owner,
+  $ssmtp_conf_group      = $sc_ssmtp::params::ssmtp_conf_group,
+  $revaliases_conf_mode  = $sc_ssmtp::params::revaliases_conf_mode,
+  $revaliases_conf_owner = $sc_ssmtp::params::revaliases_conf_owner,
+  $revaliases_conf_group = $sc_ssmtp::params::revaliases_conf_group
+) inherits sc_ssmtp::params {
 
   # Start workflow
-  if $ssmtp::params::supported {
-    class{ '::ssmtp::package': }
-    -> class{ '::ssmtp::config': }
-    -> class{ '::ssmtp::service': }
-    -> Class['ssmtp']
+  if $sc_ssmtp::params::supported {
+    class{ '::sc_ssmtp::package': }
+    -> class{ '::sc_ssmtp::config': }
+    -> class{ '::sc_ssmtp::service': }
+    -> Class['sc_ssmtp']
   }
   else {
     warning('The current operating system is not supported!')
